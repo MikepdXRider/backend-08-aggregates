@@ -4,8 +4,10 @@ const pool = require('../lib/utils/pool');
 describe('exercise 2', () => {
   afterAll(() => pool.end());
 
-  it('find the top 10 cities with the most total rental payment amount', async() => {
-    const { rows } = await pool.query(fs.readFileSync(`${__dirname}/exercise-2.sql`, 'utf-8'));
+  it('find the top 10 cities with the most total rental payment amount', async () => {
+    const { rows } = await pool.query(
+      fs.readFileSync(`${__dirname}/exercise-2.sql`, 'utf-8')
+    );
     expect(rows).toEqual([
       { city: 'Saint-Denis', sum: '211.55' },
       { city: 'Cape Coral', sum: '208.58' },
